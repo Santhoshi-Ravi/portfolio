@@ -2,6 +2,8 @@ import streamlit as st
 import PyPDF2
 import base64 
 import bionictry
+import os
+
 st.title("Bionic api")
 
 uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf")
@@ -13,6 +15,9 @@ if uploaded_file != None:
         data = pdf_path,
         file_name = "bionic_converted.pdf",
         mime='application/octet-stream')
+    os.remove('PDF/output.pdf')
+    os.remove('output.html')
+    
 else:
     st.write("Please upload a valid PDF")
 
