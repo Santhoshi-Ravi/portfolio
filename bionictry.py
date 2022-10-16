@@ -1,8 +1,9 @@
-import api_keys
+# import api_keys
 import PyPDF2
 import convertapi
 import io
 import requests
+import streamlit as st
 
 def bionic_api_conversion(pdfFileObj):
     """
@@ -24,7 +25,7 @@ def bionic_api_conversion(pdfFileObj):
     payload = "content=" + para +"&response_type=html&request_type=html&fixation=1&saccade=10"
     headers = {
         "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": api_keys.bionic_api_key,
+        "X-RapidAPI-Key": st.secrets["api_keys.bionic_api_key"],
         "X-RapidAPI-Host": "bionic-reading1.p.rapidapi.com"
     }
 
@@ -35,7 +36,7 @@ def bionic_api_conversion(pdfFileObj):
 
 
 def converting_bionic_html_to_pdf(path):
-    convertapi.api_secret = api_keys.convert_api_key
+    convertapi.api_secret = st.secrets["convert_api_key"]
     convertapi.convert('pdf', {
         'File': path
     }, from_format = 'html').save_files('PDF/')
