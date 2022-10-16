@@ -1,7 +1,5 @@
 api_keys.py
-PDF/
-output.html
-.apps_create/
+.apps_create
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
