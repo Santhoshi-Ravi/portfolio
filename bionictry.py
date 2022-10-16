@@ -36,7 +36,7 @@ def bionic_api_conversion(pdfFileObj):
 
 
 def converting_bionic_html_to_pdf(path):
-    convertapi.api_secret = st.secrets["convert_api_key"]
+    convertapi.api_secret = st.secrets["api_keys.convert_api_key"]
     convertapi.convert('pdf', {
         'File': path
     }, from_format = 'html').save_files('PDF/')
