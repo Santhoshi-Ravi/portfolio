@@ -1,5 +1,5 @@
 
-from .gitignore import api_keys
+import api_keys
 import PyPDF2
 import convertapi
 import io
